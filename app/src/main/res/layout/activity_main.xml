@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="10dp"
+        android:paddingVertical="10dp">
+        <EditText
+            android:id="@+id/et_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Input"/>
+        <CheckBox
+            android:id="@+id/is_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="chekme"/>
+        <Button
+            android:id="@+id/btn_location_practise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Location Service"/>
+        <Button
+            android:id="@+id/btn_endless_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="End Less Scroll"/>
+        <Button
+            android:id="@+id/btn_ocr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OCR Capture"/>
+        <Button
+            android:id="@+id/btn_signature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Signature"/>
+        <Button
+            android:id="@+id/btn_text_to_speech"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Text To Speech"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
