@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">My Test Peoject</string>
+    <string name="btn_find">Find Device</string>
+    <string name="bt_enabled">Bluetooth is Enabled!</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="scan_btn">Scan for devices</string>
+    <string name="close_btn">Close</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="scanning">Scanning for devices…</string>
+    <string name="connecting_to_printer">Connecting to printer</string>
+    <string name="bt_not_support">Bluetooth NOT Support</string>
+    <string name="title_connected_to">Connected to : </string>
+    <string name="whichPrinterTitel">Select Printer Type</string>
+    <string name="connect_devices">Connect a device</string>
+    <string name="title_not_connected">Not Connected, Please Retry, </string>
+    <string name="title_connecting">Connecting…</string>
+    <string name="select_device">Select a device to connect</string>
+    <string-array name="whichPrinterArr">
+        <item>TSC Bluetooth</item>
+        <item>Zebra Bluetooth</item>
+        <item>TSC Desktop</item>
+        <item>Zebra Desktop</item>
+    </string-array>
+
 </resources>

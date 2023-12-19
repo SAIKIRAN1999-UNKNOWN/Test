@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mytestpeoject.Utils.LocationManagerService;
+import com.example.mytestpeoject.data.LOC;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -30,7 +31,7 @@ import java.util.List;
 
 public class LocarionServicePractise extends AppCompatActivity {
 
-    List<Location> locList = new ArrayList<>();
+    List<LOC> locList = new ArrayList<>();
     RecyclerView rvList;
     LocationListAdapter adapter;
     @Override
@@ -54,7 +55,7 @@ public class LocarionServicePractise extends AppCompatActivity {
                 if(json !=  null && !json.isEmpty()) {
 
 
-                    List<Location> list = new Gson().fromJson(json, new TypeToken<List<Location>>() {
+                    List<LOC> list = new Gson().fromJson(json, new TypeToken<List<LOC>>() {
                     }.getType());
                     if(list != null && !list.isEmpty()){
                         locList.addAll(list);
@@ -88,9 +89,9 @@ public class LocarionServicePractise extends AppCompatActivity {
 
     class LocationListAdapter extends RecyclerView.Adapter<LocationListAdapter.ViewHolder>{
 
-        private List<Location>dktsList;
+        private List<LOC>dktsList;
 
-        LocationListAdapter(List<Location> list){
+        LocationListAdapter(List<LOC> list){
             dktsList = list;
         }
 
@@ -105,8 +106,10 @@ public class LocarionServicePractise extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 
-            String displayText = dktsList.get(i).getLatitude()+" - "+dktsList.get(i).getLongitude();
-            viewHolder.getDktNo().setText(displayText);
+            if(dktsList.get(i) != null) {
+                String displayText = dktsList.get(i).getLatitude() + " - " + dktsList.get(i).getLongitude();
+                viewHolder.getDktNo().setText(displayText);
+            }
 
 
         }

@@ -1,5 +1,6 @@
 package com.example.mytestpeoject.Utils;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.AlarmManager;
 import android.app.Notification;
@@ -34,14 +35,14 @@ import androidx.core.app.NotificationCompat;
 
 
 import com.example.mytestpeoject.LocarionServicePractise;
+import com.example.mytestpeoject.data.LOC;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class LocationManagerService extends Service implements LocationListener
-{
+public class LocationManagerService extends Service implements LocationListener {
     private static final String TAG = "LocationManagerService";
 
 
@@ -64,21 +65,24 @@ public class LocationManagerService extends Service implements LocationListener
     private Location location = new Location("");
     private PowerManager.WakeLock wakeLock;
 
-    List<Location> locList = new ArrayList<>();
+    List<LOC> locList = new ArrayList<>();
 
     public LocationManagerService() {
     }
+
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
         return mBinder;
     }
+
     private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context ctxt, Intent intent) {
             level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
         }
     };
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -89,7 +93,7 @@ public class LocationManagerService extends Service implements LocationListener
         //code here
 
 
-        Log.e("Location","location listener");
+        Log.e("Location", "location listener");
         try {
 
             if (locationManager == null) {
@@ -147,6 +151,7 @@ public class LocationManagerService extends Service implements LocationListener
         else
             startServiceinForeground();
     }
+
     @TargetApi(Build.VERSION_CODES.O)
     private void startMyOwnForeground() {
         String NOTIFICATION_CHANNEL_ID = "";
@@ -170,6 +175,7 @@ public class LocationManagerService extends Service implements LocationListener
                 .build();
         startForeground(2, notification);
     }
+
     @Override
     public void onDestroy() {
         Log.d(TAG, "onDestroy: ");
@@ -182,6 +188,7 @@ public class LocationManagerService extends Service implements LocationListener
 //        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //        context.startActivity(intent);
     }
+
     private void startServiceinForeground() {
         Intent notificationIntent = new Intent(this, LocationManagerService.class);
 
@@ -202,11 +209,20 @@ public class LocationManagerService extends Service implements LocationListener
     @Override
     public void onLocationChanged(Location loc) {
         if (loc != null) {
+
             location = loc;
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                return;
+            }
+            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
             String locate = new Gson().toJson(location);
             Log.d(TAG, locate);
-            Toast.makeText(context,locate,Toast.LENGTH_LONG).show();
-            locList.add(location);
+            Toast.makeText(context,location.getLatitude() +" - " + location.getLongitude(),Toast.LENGTH_LONG).show();
+            LOC l = new LOC();
+            l.setLatitude(location.getLatitude());
+            l.setLongitude(location.getLongitude());
+            locList.add(l);
             Intent intent = new Intent("your.package.action.UPDATE_LIST_VIEW");
             intent.putExtra("listData",new Gson().toJson(locList));
             sendBroadcast(intent);

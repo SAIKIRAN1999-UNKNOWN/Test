@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".USBPrinting">
+
+    <include
+        android:id="@+id/topbar"
+        layout="@layout/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topbar"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/btn_bg"
+        android:padding="10dp"
+        android:text="Select Printer Type:"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_below="@+id/tv_type"
+        android:id="@+id/rg"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:id="@+id/otg"
+            android:layout_height="wrap_content"
+            android:text="OTG"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/bluetooth"
+            android:layout_height="wrap_content"
+            android:text="Bluetooth"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/deviceMac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rg"
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        android:textColor="@color/green" />
+
+    <EditText
+        android:id="@+id/connumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/deviceMac"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:drawable/edit_text"
+        android:hint="Enter LR Number"
+        android:inputType="number"
+        android:maxLength="7"
+        android:singleLine="true"
+        android:visibility="gone"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ll"
+        android:layout_below="@+id/connumber"
+        android:visibility="gone"
+        android:weightSum="2">
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:textAllCaps="true"
+            android:maxLength="4"
+            android:layout_height="wrap_content"
+            android:hint="Branch"
+            android:background="@android:drawable/edit_text"
+            android:layout_margin="10dp"
+            android:id="@+id/origin" />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textAllCaps="true"
+            android:visibility="gone"
+            android:maxLength="4"
+            android:inputType="textCapCharacters"
+            android:layout_height="wrap_content"
+            android:hint="Dest"
+            android:singleLine="true"
+            android:background="@android:drawable/edit_text"
+            android:layout_margin="10dp"
+            android:id="@+id/destination" />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:layout_height="wrap_content"
+            android:hint="Pieces"
+            android:maxLength="4"
+            android:digits="1234567890"
+            android:inputType="number"
+            android:background="@android:drawable/edit_text"
+            android:layout_below="@+id/topbar"
+            android:layout_margin="10dp"
+            android:id="@+id/noofpcs" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/reprint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/connect"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_border"
+        android:text="Print Specific Labels"
+        android:visibility="gone"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:id="@+id/ll_piece_numbers"
+        android:layout_below="@+id/reprint"
+        android:weightSum="2">
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:textAllCaps="true"
+            android:maxLength="4"
+            android:inputType="number"
+            android:digits="1234567890"
+            android:layout_height="wrap_content"
+            android:hint="From Piece No."
+            android:background="@android:drawable/edit_text"
+            android:layout_below="@+id/topbar"
+            android:layout_margin="10dp"
+            android:id="@+id/from_piece_num" />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:layout_height="wrap_content"
+            android:hint="To Piece No."
+            android:maxLength="4"
+            android:inputType="number"
+            android:digits="1234567890"
+            android:background="@android:drawable/edit_text"
+            android:layout_margin="10dp"
+            android:id="@+id/to_piece_num" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/connect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fromnumber"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_border"
+        android:text="Print"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Enter From Number"
+        android:visibility="gone"
+        android:maxLength="9"
+        android:singleLine="true"
+        android:background="@android:drawable/edit_text"
+        android:layout_below="@+id/ll"
+        android:layout_margin="10dp"
+        android:id="@+id/fromnumber" />
+<!--<LinearLayout-->
+    <!--android:id="@+id/ll_btns"-->
+    <!--android:layout_below="@+id/ll_piece_numbers"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:weightSum="2"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_margin="5dp">-->
+    <!--<Button android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/ll_piece_numbers"-->
+        <!--android:id="@+id/connect"-->
+        <!--android:text="Print"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:background="@drawable/rounded_border"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:textAllCaps="false"-->
+        <!--/>-->
+    <!--<Button android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/ll_piece_numbers"-->
+        <!--android:id="@+id/reprint"-->
+        <!--android:text="Enable RePrint"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:background="@drawable/rounded_border"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:textAllCaps="false"-->
+        <!--/>-->
+
+<!--</LinearLayout>-->
+
+    <Button android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/connect"
+        android:visibility="gone"
+        android:id="@+id/refresh"
+        android:text="Refresh Branches"
+        android:textColor="@color/white"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="@drawable/rounded_border"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textAllCaps="false"
+        />
+
+</RelativeLayout>

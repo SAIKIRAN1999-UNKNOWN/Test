@@ -16,7 +16,7 @@ import java.util.Locale;
 
 public class TextToSpech extends AppCompatActivity {
 
-    public TextToSpech textToSpeech;
+    public TextToSpeech textToSpeech;
     public Context context;
     private EditText userInputEditText;
 
@@ -91,18 +91,18 @@ public class TextToSpech extends AppCompatActivity {
     public void speakNumber(int number) {
         String numberInWords = NumberToWords.convert(number);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            textToSpeech.speak(numberInWords, TextToSpech.QUEUE_FLUSH, null, "uniqueId");
+            textToSpeech.speak(numberInWords, TextToSpeech.QUEUE_FLUSH, null, "uniqueId");
         } else {
-            textToSpeech.speak(numberInWords, TextToSpech.QUEUE_FLUSH, null);
+            textToSpeech.speak(numberInWords, TextToSpeech.QUEUE_FLUSH, null);
         }
     }
 
     //    Function to Speak the text
     public void speakText(String text) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            textToSpeech.speak(text, TextToSpech.QUEUE_FLUSH, null, "uniqueId");
+            textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "uniqueId");
         } else {
-            textToSpeech.speak(text, TextToSpech.QUEUE_FLUSH, null);
+            textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
         }
     }
 

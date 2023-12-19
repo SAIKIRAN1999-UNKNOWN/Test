@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:background="@color/white">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:textColor="@color/black"
+    android:textStyle="bold"
+    android:id="@+id/devicename"
+    />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:layout_below="@+id/devicename"
+        android:id="@+id/devicemac"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/devicemac"
+        android:text="Choose"
+        android:padding="10dp"
+        android:background="@drawable/btn_bg"
+        android:id="@+id/choosedevice"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
+</RelativeLayout>

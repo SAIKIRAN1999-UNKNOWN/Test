@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/device_list_bg"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/title_paired_devices"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#666"
+        android:paddingLeft="5dp"
+        android:shadowColor="#333"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:text="@string/title_paired_devices"
+        android:textColor="#fff"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/paired_devices"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="#bbb"
+        android:dividerHeight="2dp"
+        android:minHeight="40dip"
+        android:padding="2dp"
+        android:smoothScrollbar="true"
+        android:stackFromBottom="true" />
+
+    <TextView
+        android:id="@+id/title_new_devices"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#999"
+        android:paddingLeft="5dp"
+        android:shadowColor="#333"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:text="@string/title_other_devices"
+        android:textColor="#fff"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/new_devices"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_weight="2"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="#bbb"
+        android:dividerHeight="2dp"
+        android:padding="2dp"
+        android:smoothScrollbar="true"
+        android:stackFromBottom="true" />
+    <!--
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#666"
+        android:layout_marginBottom="2dp" />
+    -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_border"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/scan_btn"
+            style="@style/ButtonText"
+            android:layout_weight="1"
+            android:text="@string/btn_find" />
+
+        <Button
+            android:id="@+id/close_btn"
+            style="@style/ButtonText"
+            android:layout_weight="1"
+            android:text="@string/close_btn" />
+    </LinearLayout>
+
+</LinearLayout><!--
+ *
+ * 
+ * Developed by Reva Tech Solutions (India) Private Limited
+ * Date: February 27, 2012
+ * All code (c) 2011 Reva Tech Solutions (India) Private Limited
+ * All rights reserved
+ * 
+ *
+-->

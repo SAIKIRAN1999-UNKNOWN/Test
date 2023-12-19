@@ -91,6 +91,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        findViewById(R.id.btn_label_print).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(ActivityCompat.checkSelfPermission(context,Manifest.permission.BLUETOOTH_ADMIN) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context,Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED){
+                    startActivity(new Intent(context,USBPrinting.class));
+                }else{
+                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.BLUETOOTH_ADMIN,Manifest.permission.BLUETOOTH_CONNECT}, 1);
+                }
+            }
+        });
 
     }
 }
